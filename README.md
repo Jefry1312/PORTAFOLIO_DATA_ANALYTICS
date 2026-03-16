@@ -40,8 +40,7 @@ El análisis se estructuró de "lo macro a lo micro", desglosando el problema en
 **Problemática:** ¿Por qué perdemos dinero en las mesas? ¿Es el costo de envío, el precio base o la política de promociones?
 * **Hallazgo y Modelado:** Se cruzó la variable de `Margen %` contra el `Descuento Promedio` aplicado en las distintas regiones. Utilizando una **Regresión Lineal Simple ($y = mx + b$)**, se demostró matemáticamente que la política de descuentos era la culpable directa de las pérdidas. La región **East** estaba aplicando descuentos promedio del 38%, garantizando una pérdida operativa total.
 <br>
-<img src="sensibilidad_descuento_mesas.png" alt="Análisis de Sensibilidad de Descuento" width="800"/>
-
+![Análisis de Sensibilidad de Descuento](./Sensibilidad_descuento_mesas.png)
 ---
 
 ## 💡 Propuestas Estratégicas y Plan de Acción
