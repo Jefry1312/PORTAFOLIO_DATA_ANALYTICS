@@ -1,39 +1,68 @@
-# 📊 Análisis de Rentabilidad y Optimización de Margen - Superstore 📉
+# 📊 Análisis de Rentabilidad y Optimización de Políticas de Precios (Superstore Dataset) 📉
 
-## 📋 Descripción del Proyecto
-Este proyecto consiste en un análisis exhaustivo de los datos de ventas de una "Superstore" para identificar fugas de rentabilidad. A través de la exploración de datos y el modelado estadístico, se detectó que la subcategoría de **Mesas (Tables)** presentaba pérdidas críticas debido a una política de descuentos ineficiente.
-
-El objetivo principal fue determinar el **punto de equilibrio (breakeven)** para los descuentos, permitiendo que la categoría vuelva a ser rentable.
-
-## 🛠️ Herramientas Utilizadas
-* **Lenguaje:** Python 3.12
-* **Librerías:** * `Pandas` & `NumPy`: Procesamiento de datos y cálculos estadísticos.
-    * `Matplotlib` & `Seaborn`: Visualización avanzada de datos.
-    * `np.polyfit`: Implementación del modelo de Regresión Lineal.
-
-## 🔍 Hallazgos Clave
-
-### 1. El Problema del Lunes (Monday)
-Al segmentar por día de la semana, se identificó que la categoría **Furniture (Muebles)** es la menos rentable los lunes, con un margen de apenas **2.91%**, comparado con el **22.40%** de Office Supplies.
-
-### 2. La "Trampa de Descuento" en Mesas
-Dentro de Furniture, las **Mesas (Tables)** mostraron un margen negativo del **-6.39%**. Al profundizar, se encontró una correlación negativa agresiva: a mayor descuento, el margen se desploma de forma no sostenible.
-
-## 📈 Modelado: Regresión Lineal y Breakeven
-Utilicé un modelo de regresión lineal ($y = mx + b$) para encontrar el límite de descuento que el negocio puede soportar.
-
-![Análisis de Sensibilidad de Descuento](./sensibilidad_descuento_mesas.png)
-
-### Resultados del Modelo:
-* **Punto de Equilibrio:** El descuento máximo tolerable es del **17.5%**.
-* **Impacto:** Por cada 1% que se aumenta el descuento, el margen cae aproximadamente un **1.62%** (basado en la pendiente del modelo).
-* **Situación Crítica:** La región **East** opera con un 38% de descuento, lo que explica su pérdida neta masiva.
-
-## 🚀 Recomendaciones Estratégicas
-1. **Tope de Descuento:** Implementar un límite máximo de descuento del **15%** para la subcategoría de Mesas.
-2. **Revisión Regional:** Intervenir la estrategia comercial de la región **East**, alineándola con el modelo de la región **West** (que opera con descuentos del 16% y mantiene márgenes positivos).
-3. **Monitoreo de Lunes:** Ajustar las promociones automáticas de los inicios de semana para evitar la erosión del margen en productos de mobiliario.
+## 🚀 Resumen Ejecutivo
+En el sector retail, un alto volumen de ventas no siempre garantiza rentabilidad. Este proyecto documenta un análisis de datos End-to-End sobre el dataset de una "Superstore", con el objetivo de auditar la salud financiera del negocio. A través de análisis exploratorio (EDA) y modelado estadístico, se detectó una **fuga crítica de capital** oculta detrás de grandes volúmenes de ventas, culminando en el diseño de una política de descuentos estandarizada y basada en datos.
 
 ---
-**Autor:** [Tu Nombre o Usuario de GitHub]  
-**LinkedIn:** [Link a tu perfil]
+
+## 🛠️ Herramientas y Tecnologías Utilizadas
+Para llevar a cabo este análisis, se construyó un pipeline de datos utilizando el ecosistema de **Python**:
+* **Pandas:** Limpieza de datos, Feature Engineering (creación de la métrica `Margen_pct`), y agregaciones complejas (`groupby`, `agg`).
+* **NumPy:** Modelado matemático y cálculo de la función polinómica para la regresión.
+* **Matplotlib & Seaborn:** Creación de visualizaciones estáticas, ajuste de ejes, alineación de etiquetas y diseño de gráficos de sensibilidad.
+* **Estadística Descriptiva e Inferencial:** Regresión Lineal Simple para modelar la relación *Causa-Efecto* entre variables comerciales.
+
+---
+
+## 🕵️‍♂️ Desarrollo del Análisis y Problemáticas Detectadas
+
+El análisis se estructuró de "lo macro a lo micro", desglosando el problema en 4 fases clave:
+
+### Fase 1: Análisis General de Tráfico y Ventas
+**Problemática inicial:** Necesitábamos entender cómo se distribuye el esfuerzo comercial a lo largo de la semana para identificar los días de mayor impacto.
+* **Hallazgo:** Se trazó el flujo de ventas diario, estableciendo una línea base del comportamiento del consumidor a lo largo de la semana.
+<br>
+<img src="Ventas%20por%20Dia.png" alt="Ventas por Dia" width="800"/>
+
+### Fase 2: La "Ilusión del Volumen" de los Lunes (Monday)
+**Problemática:** Al evaluar el rendimiento del inicio de la semana (Lunes), descubrimos que no todas las categorías aportaban valor real a la empresa. 
+* **Hallazgo:** Mientras *Office Supplies* y *Technology* mantenían márgenes saludables (22.40% y 12.28% respectivamente), la categoría **Furniture (Muebles)** colapsaba con un margen de apenas **2.91%**. El esfuerzo de ventas en muebles los lunes no estaba generando un retorno de inversión (ROI) justificable.
+<br>
+<img src="Categorias.png" alt="Márgenes por Categoría" width="800"/>
+
+### Fase 3: Aislamiento del Foco de Pérdida (Drill-Down)
+**Problemática:** Decir que "los muebles no son rentables" es muy ambiguo para tomar decisiones. Era necesario aislar exactamente qué productos estaban drenando la caja.
+* **Hallazgo:** Al hacer un *drill-down* dentro de Furniture, los datos revelaron que las **Mesas (Tables)** (-6.39%) y los libreros (Bookcases) operaban en números rojos. Las mesas representaban la mayor hemorragia financiera del catálogo.
+<br>
+<img src="Subcategorias.png" alt="Márgenes por Subcategoría" width="800"/>
+
+### Fase 4: Modelado Estadístico y Causa Raíz
+**Problemática:** ¿Por qué perdemos dinero en las mesas? ¿Es el costo de envío, el precio base o la política de promociones?
+* **Hallazgo y Modelado:** Se cruzó la variable de `Margen %` contra el `Descuento Promedio` aplicado en las distintas regiones. Utilizando una **Regresión Lineal Simple ($y = mx + b$)**, se demostró matemáticamente que la política de descuentos era la culpable directa de las pérdidas. La región **East** estaba aplicando descuentos promedio del 38%, garantizando una pérdida operativa total.
+<br>
+<img src="sensibilidad_descuento_mesas.png" alt="Análisis de Sensibilidad de Descuento" width="800"/>
+
+---
+
+## 💡 Propuestas Estratégicas y Plan de Acción
+
+Basado en el análisis de sensibilidad y la ecuación de regresión, se proponen las siguientes acciones inmediatas para el equipo directivo y comercial:
+
+1. **Implementación de un Tope de Descuento (Breakeven):**
+   * El modelo matemático indica que la línea de rentabilidad cruza el cero (Punto de Equilibrio) exactamente en el **17.5%**. 
+   * **Propuesta:** Bloquear por sistema cualquier descuento superior al **15%** para la subcategoría de Mesas.
+
+2. **Reestructuración Comercial en la Región East:**
+   * La región East está utilizando las mesas como "producto gancho" (Loss Leader) de forma descontrolada (38% de descuento).
+   * **Propuesta:** Auditar a los gerentes de ventas de la región East y obligarlos a adoptar el marco de precios de la región **West** (que opera con un 16% de descuento y mantiene el margen positivo).
+
+3. **Reevaluación de Campañas de Inicio de Semana:**
+   * **Propuesta:** Reducir la inversión en marketing para la categoría de *Furniture* los días lunes y reasignar ese presupuesto a *Office Supplies*, maximizando el retorno de inversión donde el margen ya es orgánicamente del 22%.
+
+4. **Alertas de Margen Negativo:**
+   * **Propuesta:** Implementar un Dashboard dinámico que genere alertas en tiempo real cuando una transacción individual proyecte un margen negativo por culpa de una excepción en el descuento.
+
+---
+**👨‍💻 Autor:** Jeferson Cuadros Zurichaqui  
+**💼 LinkedIn:** https://www.linkedin.com/in/jefersoncuadros/  
+**📧 Contacto:** jcuadroszurichaqui@gmail.com
