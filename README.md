@@ -20,27 +20,32 @@ El análisis se estructuró de "lo macro a lo micro", desglosando el problema en
 
 ### Fase 1: Análisis General de Tráfico y Ventas
 **Problemática inicial:** Necesitábamos entender cómo se distribuye el esfuerzo comercial a lo largo de la semana para identificar los días de mayor impacto.
-* **Hallazgo:** Se trazó el flujo de ventas diario, estableciendo una línea base del comportamiento del consumidor a lo largo de la semana.
-<br>
-<img src="Ventas%20por%20Dia.png" alt="Ventas por Dia" width="800"/>
+
+**Hallazgo:** Se trazó el flujo de ventas diario, estableciendo una línea base del comportamiento del consumidor a lo largo de la semana.
+
+![Ventas por Dia](Ventas%20por%20dia%20de%20la%20Semana.png)
 
 ### Fase 2: La "Ilusión del Volumen" de los Lunes (Monday)
-**Problemática:** Al evaluar el rendimiento del inicio de la semana (Lunes), descubrimos que no todas las categorías aportaban valor real a la empresa. 
-* **Hallazgo:** Mientras *Office Supplies* y *Technology* mantenían márgenes saludables (22.40% y 12.28% respectivamente), la categoría **Furniture (Muebles)** colapsaba con un margen de apenas **2.91%**. El esfuerzo de ventas en muebles los lunes no estaba generando un retorno de inversión (ROI) justificable.
-<br>
-<img src="Categorias.png" alt="Márgenes por Categoría" width="800"/>
+**Problemática:** Al evaluar el rendimiento del inicio de la semana (Lunes), descubrimos que no todas las categorías aportaban valor real a la empresa.
+
+**Hallazgo:** Mientras *Office Supplies* y *Technology* mantenían márgenes saludables (22.40% y 12.28% respectivamente), la categoría **Furniture (Muebles)** colapsaba con un margen de apenas **2.91%**. El esfuerzo de ventas en muebles los lunes no estaba generando un retorno de inversión (ROI) justificable.
+
+![Márgenes por Categoría](Margen%25%20de%20Beneficio%20por%20Categoria.png)
 
 ### Fase 3: Aislamiento del Foco de Pérdida (Drill-Down)
 **Problemática:** Decir que "los muebles no son rentables" es muy ambiguo para tomar decisiones. Era necesario aislar exactamente qué productos estaban drenando la caja.
-* **Hallazgo:** Al hacer un *drill-down* dentro de Furniture, los datos revelaron que las **Mesas (Tables)** (-6.39%) y los libreros (Bookcases) operaban en números rojos. Las mesas representaban la mayor hemorragia financiera del catálogo.
-<br>
-<img src="Subcategorias.png" alt="Márgenes por Subcategoría" width="800"/>
+
+**Hallazgo:** Al hacer un *drill-down* dentro de Furniture, los datos revelaron que las **Mesas (Tables)** (-6.39%) y los libreros (Bookcases) operaban en números rojos. Las mesas representaban la mayor hemorragia financiera del catálogo.
+
+![Márgenes por Subcategoría](Margen%25%20de%20Beneficio%20por%20Sub-Categoria%20Forniture.png)
 
 ### Fase 4: Modelado Estadístico y Causa Raíz
 **Problemática:** ¿Por qué perdemos dinero en las mesas? ¿Es el costo de envío, el precio base o la política de promociones?
-* **Hallazgo y Modelado:** Se cruzó la variable de `Margen %` contra el `Descuento Promedio` aplicado en las distintas regiones. Utilizando una **Regresión Lineal Simple ($y = mx + b$)**, se demostró matemáticamente que la política de descuentos era la culpable directa de las pérdidas. La región **East** estaba aplicando descuentos promedio del 38%, garantizando una pérdida operativa total.
-<br>
-![Análisis de Sensibilidad de Descuento](./Sensibilidad_descuento_mesas.png)
+
+**Hallazgo y Modelado:** Se cruzó la variable de `Margen %` contra el `Descuento Promedio` aplicado en las distintas regiones. Utilizando una **Regresión Lineal Simple ($y = mx + b$)**, se demostró matemáticamente que la política de descuentos era la culpable directa de las pérdidas. La región **East** estaba aplicando descuentos promedio del 38%, garantizando una pérdida operativa total.
+
+![Análisis de Sensibilidad de Descuento](Sensibilidad_descuento_mesas.png)
+
 ---
 
 ## 💡 Propuestas Estratégicas y Plan de Acción
@@ -48,7 +53,7 @@ El análisis se estructuró de "lo macro a lo micro", desglosando el problema en
 Basado en el análisis de sensibilidad y la ecuación de regresión, se proponen las siguientes acciones inmediatas para el equipo directivo y comercial:
 
 1. **Implementación de un Tope de Descuento (Breakeven):**
-   * El modelo matemático indica que la línea de rentabilidad cruza el cero (Punto de Equilibrio) exactamente en el **17.5%**. 
+   * El modelo matemático indica que la línea de rentabilidad cruza el cero (Punto de Equilibrio) exactamente en el **17.5%**.
    * **Propuesta:** Bloquear por sistema cualquier descuento superior al **15%** para la subcategoría de Mesas.
 
 2. **Reestructuración Comercial en la Región East:**
