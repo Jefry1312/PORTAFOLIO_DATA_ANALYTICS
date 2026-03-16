@@ -1,72 +1,85 @@
-# 📊 Análisis de Rentabilidad y Optimización de Políticas de Precios (Superstore Dataset) 📉
+<div align="center">
 
-## 🚀 Resumen Ejecutivo
-En el sector retail, un alto volumen de ventas no siempre garantiza rentabilidad. Este proyecto documenta un análisis de datos End-to-End sobre el dataset de una "Superstore", con el objetivo de auditar la salud financiera del negocio. A través de análisis exploratorio (EDA) y modelado estadístico, se detectó una **fuga crítica de capital** oculta detrás de grandes volúmenes de ventas, culminando en el diseño de una política de descuentos estandarizada y basada en datos.
+<!-- BANNER PRINCIPAL -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=200&section=header&text=Jeferson%20Cuadros%20Zurichaqui&fontSize=40&fontColor=ffffff&fontAlignY=38&desc=Data%20Analyst%20%7C%20Python%20%7C%20SQL%20%7C%20Storytelling%20con%20Datos&descAlignY=58&descSize=16&animation=fadeIn" width="100%"/>
 
----
-
-## 🛠️ Herramientas y Tecnologías Utilizadas
-Para llevar a cabo este análisis, se construyó un pipeline de datos utilizando el ecosistema de **Python**:
-* **Pandas:** Limpieza de datos, Feature Engineering (creación de la métrica `Margen_pct`), y agregaciones complejas (`groupby`, `agg`).
-* **NumPy:** Modelado matemático y cálculo de la función polinómica para la regresión.
-* **Matplotlib & Seaborn:** Creación de visualizaciones estáticas, ajuste de ejes, alineación de etiquetas y diseño de gráficos de sensibilidad.
-* **Estadística Descriptiva e Inferencial:** Regresión Lineal Simple para modelar la relación *Causa-Efecto* entre variables comerciales.
+</div>
 
 ---
 
-## 🕵️‍♂️ Desarrollo del Análisis y Problemáticas Detectadas
+<div align="center">
 
-El análisis se estructuró de "lo macro a lo micro", desglosando el problema en 4 fases clave:
+## 👋 Hola, soy Jeferson
 
-### Fase 1: Análisis General de Tráfico y Ventas
-**Problemática inicial:** Necesitábamos entender cómo se distribuye el esfuerzo comercial a lo largo de la semana para identificar los días de mayor impacto.
+### Analista de Datos con enfoque en negocio
 
-**Hallazgo:** Se trazó el flujo de ventas diario, estableciendo una línea base del comportamiento del consumidor a lo largo de la semana.
+Transformo datos en decisiones. Mi trabajo no termina en el gráfico — termina cuando el análisis genera un cambio real dentro de la organización.
 
-![Ventas por Dia](Ventas%20por%20dia%20de%20la%20Semana.png)
+Me especializo en encontrar patrones ocultos, diagnosticar problemas financieros y proponer soluciones concretas y medibles, siempre con datos como respaldo.
 
-### Fase 2: La "Ilusión del Volumen" de los Lunes (Monday)
-**Problemática:** Al evaluar el rendimiento del inicio de la semana (Lunes), descubrimos que no todas las categorías aportaban valor real a la empresa.
-
-**Hallazgo:** Mientras *Office Supplies* y *Technology* mantenían márgenes saludables (22.40% y 12.28% respectivamente), la categoría **Furniture (Muebles)** colapsaba con un margen de apenas **2.91%**. El esfuerzo de ventas en muebles los lunes no estaba generando un retorno de inversión (ROI) justificable.
-
-![Márgenes por Categoría](Margen%25%20de%20Beneficio%20por%20Categoria.png)
-
-### Fase 3: Aislamiento del Foco de Pérdida (Drill-Down)
-**Problemática:** Decir que "los muebles no son rentables" es muy ambiguo para tomar decisiones. Era necesario aislar exactamente qué productos estaban drenando la caja.
-
-**Hallazgo:** Al hacer un *drill-down* dentro de Furniture, los datos revelaron que las **Mesas (Tables)** (-6.39%) y los libreros (Bookcases) operaban en números rojos. Las mesas representaban la mayor hemorragia financiera del catálogo.
-
-![Márgenes por Subcategoría](Margen%25%20de%20Beneficio%20por%20Sub-Categoria%20Forniture.png)
-
-### Fase 4: Modelado Estadístico y Causa Raíz
-**Problemática:** ¿Por qué perdemos dinero en las mesas? ¿Es el costo de envío, el precio base o la política de promociones?
-
-**Hallazgo y Modelado:** Se cruzó la variable de `Margen %` contra el `Descuento Promedio` aplicado en las distintas regiones. Utilizando una **Regresión Lineal Simple ($y = mx + b$)**, se demostró matemáticamente que la política de descuentos era la culpable directa de las pérdidas. La región **East** estaba aplicando descuentos promedio del 38%, garantizando una pérdida operativa total.
-
-![Análisis de Sensibilidad de Descuento](Sensibilidad_descuento_mesas.png)
+</div>
 
 ---
 
-## 💡 Propuestas Estratégicas y Plan de Acción
+## 🧠 Stack Tecnológico
 
-Basado en el análisis de sensibilidad y la ecuación de regresión, se proponen las siguientes acciones inmediatas para el equipo directivo y comercial:
+<div align="center">
 
-1. **Implementación de un Tope de Descuento (Breakeven):**
-   * El modelo matemático indica que la línea de rentabilidad cruza el cero (Punto de Equilibrio) exactamente en el **17.5%**.
-   * **Propuesta:** Bloquear por sistema cualquier descuento superior al **15%** para la subcategoría de Mesas.
+![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=python&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 
-2. **Reestructuración Comercial en la Región East:**
-   * La región East está utilizando las mesas como "producto gancho" (Loss Leader) de forma descontrolada (38% de descuento).
-   * **Propuesta:** Auditar a los gerentes de ventas de la región East y obligarlos a adoptar el marco de precios de la región **West** (que opera con un 16% de descuento y mantiene el margen positivo).
-
-3. **Reevaluación de Campañas de Inicio de Semana:**
-   * **Propuesta:** Reducir la inversión en marketing para la categoría de *Furniture* los días lunes y reasignar ese presupuesto a *Office Supplies*, maximizando el retorno de inversión donde el margen ya es orgánicamente del 22%.
-
-4. **Alertas de Margen Negativo:**
-   * **Propuesta:** Implementar un Dashboard dinámico que genere alertas en tiempo real cuando una transacción individual proyecte un margen negativo por culpa de una excepción en el descuento.
+</div>
 
 ---
-**👨‍💻 Autor:** Jeferson Cuadros Zurichaqui  
-**💼 LinkedIn:** https://www.linkedin.com/in/jefersoncuadros/  
-**📧 Contacto:** jcuadroszurichaqui@gmail.com
+
+## 📁 Portafolio de Proyectos
+
+> Cada proyecto sigue una metodología **End-to-End**: desde la definición del problema de negocio hasta las propuestas estratégicas basadas en el análisis.
+
+---
+
+### 📊 01 — Análisis de Rentabilidad y Optimización de Precios
+
+**[→ Ver proyecto completo](./01_Superstore_Rentabilidad/)**
+
+| | |
+|---|---|
+| **Dataset** | Superstore (Kaggle) |
+| **Herramientas** | Python · Pandas · NumPy · Matplotlib · Seaborn |
+| **Enfoque** | Auditoría financiera · Pricing Strategy · Regresión Lineal |
+
+**Problemática:** Un alto volumen de ventas ocultaba una fuga crítica de capital en la subcategoría de Mesas (Furniture). La región Este aplicaba descuentos del 38%, operando sistemáticamente en pérdida.
+
+**Resultado clave:** Mediante un modelo de Regresión Lineal se identificó que el punto de equilibrio se ubica en el **17.5% de descuento**. Se propuso una política estandarizada de máximo **15%**, con potencial de revertir márgenes negativos y recuperar miles de dólares.
+
+---
+
+> 🚧 *Más proyectos en camino...*
+
+---
+
+## 📬 Contacto
+
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jefersoncuadros/)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jcuadroszurichaqui@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Jefry1312)
+
+</div>
+
+---
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,50:203a43,100:0f2027&height=100&section=footer" width="100%"/>
+
+*"El dato no miente. La pregunta que le haces sí puede equivocarse."*
+
+</div>
